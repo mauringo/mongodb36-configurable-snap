@@ -1,0 +1,40 @@
+name: mongo39-configurable
+version: '0.1'
+base: core18
+summary: a fully configurable no-sql database
+description: MongoDB is an open source NoSQL database management program. NoSQL is used as an alternative to traditional relational databases. NoSQL databases are quite useful for working with large sets of distributed data. MongoDB is a tool that can manage document-oriented information, store or retrieve information.
+confinement: strict
+grade: stable
+
+
+    
+apps:
+
+     
+  run: 
+    command: sh $SNAP/bin/runserver.sh  
+    daemon: simple
+    plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
+    restart-condition: on-failure
+      
+  info: 
+    command: sh $SNAP/bin/info.sh  
+    plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
+
+parts:
+
+
+
+  shscripts:  
+    source: ./shscripts/
+    plugin: dump
+    build-packages:
+      - mongodb
+      - libstemmer-dev
+    stage-packages:
+      - mongodb
+      - libstemmer-dev
+    organize:
+      '*': bin/
+
+
