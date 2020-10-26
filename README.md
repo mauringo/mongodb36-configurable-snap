@@ -1,4 +1,4 @@
-# mongodb39-configurable-snap
+# mongodb36-configurable-snap
 A fully configurable mongodb 3.9 snap 
 
 ## Step 0 - System setup - if needed
