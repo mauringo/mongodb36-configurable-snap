@@ -1,4 +1,4 @@
-name: mongo39-configurable
+name: mongo36-configurable
 version: '0.1'
 base: core18
 summary: a fully configurable no-sql database
