@@ -1,6 +1,14 @@
 # mongodb36-configurable-snap
 A fully configurable mongodb 3.6.3 snap 
 
+installable trough snapd:
+
+https://snapcraft.io/mongo36-configurable
+
+command:
+*- sudo snap install mongo36-configurable*
+
+
 ## Step 0 - System setup - if needed
 To bulid this snap snapcrft and multipass are needed.
 
