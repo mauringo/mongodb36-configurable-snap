@@ -1,8 +1,7 @@
 name: mongo36-configurable
-version: 0.1
+version: '1.0'
 base: core18
 summary: MongoDB document-oriented database
-
 description: |
     MongoDB is a high-performance, open source, schema-free
     document-oriented data store that's easy to deploy, manage
