@@ -1,40 +1,53 @@
 name: mongo36-configurable
-version: '0.1'
+version: 01
 base: core18
-summary: a fully configurable no-sql database
-description: MongoDB is an open source NoSQL database management program. NoSQL is used as an alternative to traditional relational databases. NoSQL databases are quite useful for working with large sets of distributed data. MongoDB is a tool that can manage document-oriented information, store or retrieve information.
+summary: MongoDB document-oriented database
+
+description: |
+    MongoDB is a high-performance, open source, schema-free
+    document-oriented data store that's easy to deploy, manage
+    and use. It's network accessible, written in C++ and offers
+    the following features:
+
+       * Collection oriented storage - easy storage of object-style data
+       * Full index support, including on inner objects
+       * Query profiling
+       * Replication and fail-over support
+       * Efficient storage of binary data including large objects (e.g. videos)
+       * Auto-sharding for cloud-level scalability
+
+    High performance, scalability, and reasonable depth of functionality
+    are the goals for the project.
+
 confinement: strict
-grade: stable
 
-
-    
 apps:
+    
+    mongod:
+        command: bin/run.sh 
+        daemon: simple
+        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
+        restart-condition: on-failure
 
-     
-  run: 
-    command: sh $SNAP/bin/runserver.sh  
-    daemon: simple
-    plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
-    restart-condition: on-failure
-      
-  info: 
-    command: sh $SNAP/bin/info.sh  
-    plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
+        
+
+
+plugs:
+    home:
+    network:
+    network-bind:
 
 parts:
+    mongodb:
+        plugin: nil
+        stage-packages:
+            - mongodb
+            - libssl1.1
+            - libcurl3
 
-
-
-  shscripts:  
-    source: ./shscripts/
-    plugin: dump
-    build-packages:
-      - mongodb
-      - libstemmer-dev
-    stage-packages:
-      - mongodb
-      - libstemmer-dev
-    organize:
-      '*': bin/
-
-
+  
+    shscripts:  
+        source: ./shscripts/
+        plugin: dump
+        organize:
+          '*': bin/
