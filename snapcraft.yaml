@@ -1,5 +1,5 @@
 name: mongo36-configurable
-version: 01
+version: 0.1
 base: core18
 summary: MongoDB document-oriented database
 
