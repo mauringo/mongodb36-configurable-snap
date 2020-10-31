@@ -1,7 +1,12 @@
 # mongodb36-configurable-snap
+
+
+
 A fully configurable mongodb 3.6.3 snap 
 
-installable trough snapd:
+Installable trough snapd:
+
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/mongo36-configurable)
 
 https://snapcraft.io/mongo36-configurable
 
