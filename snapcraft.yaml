@@ -3,6 +3,8 @@ version: '1.1'
 base: core18
 summary: MongoDB document-oriented database
 description: |
+    The Snap configuration files are stored in: /var/snap/mongo36-configurable/buildVersion/mongodb.conf 
+    
     MongoDB is a high-performance, open source, schema-free
     document-oriented data store that's easy to deploy, manage
     and use. It's network accessible, written in C++ and offers
@@ -28,7 +30,10 @@ apps:
         plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
         restart-condition: on-failure
 
-        
+   info:
+        command: bin/info.sh 
+        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
+       
 
 parts:
     mongodb:
@@ -37,8 +42,7 @@ parts:
             - mongodb
             - libssl1.1
             - libcurl3
-
-  
+   
     shscripts:  
         source: ./shscripts/
         plugin: dump
