@@ -30,12 +30,6 @@ apps:
 
         
 
-
-plugs:
-    home:
-    network:
-    network-bind:
-
 parts:
     mongodb:
         plugin: nil
