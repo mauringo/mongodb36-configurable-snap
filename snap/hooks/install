@@ -4,7 +4,19 @@
 #this script runs once at the installation. place your code below
 echo "You are installing the app"
 
-cp -a $SNAP/bin/conf/*  $SNAP_DATA/
+# ensure the conf directory exists
+if [ ! -f "$SNAP_COMMON/hello.conf" ]; then
+	cp -a $SNAP/bin/conf/*  $SNAP_COMMON/
+	exit 0
+fi
 
 
-echo "hello" > "$SNAP_DATA/hello.conf"
+
+
+
+echo "hello" > "$SNAP_COMMON/hello.conf"
+
+
+
+
+
