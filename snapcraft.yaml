@@ -15,8 +15,8 @@ description: |
     
     MongoDB is a high-performance, open source, schema-free
     document-oriented data store that's easy to deploy, manage
-    and use. It's network accessible, written in C++ and offers
-    the following features:
+    and use. It's network accessible, written in C++ and offers 
+    the following features.
 
        * Collection oriented storage - easy storage of object-style data
        * Full index support, including on inner objects
