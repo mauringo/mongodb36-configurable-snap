@@ -64,8 +64,8 @@ parts:
         stage-packages:
             - mongodb-server
             - mongodb-server-core
-            - libssl1.1
-            - libcurl3
+            - libssl-dev
+            - libcurl-dev
    
     shscripts:  
         source: ./shscripts/
