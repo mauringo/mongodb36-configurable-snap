@@ -62,7 +62,8 @@ parts:
     mongodb:
         plugin: nil
         stage-packages:
-            - mongodb
+            - mongodb-server
+            - mongodb-serve-core
             - libssl1.1
             - libcurl3
    
