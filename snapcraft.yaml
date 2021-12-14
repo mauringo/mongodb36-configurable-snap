@@ -60,12 +60,10 @@ apps:
 
 parts:
     mongodb:
-        plugin: dump
-        source:
-          - on amd64: https://repo.mongodb.org/apt/ubuntu/dists/bionic/mongodb-org/4.4/multiverse/binary-amd64/mongodb-org-server_4.4.1_amd64.deb
-          - on arm64: https://repo.mongodb.org/apt/ubuntu/dists/bionic/mongodb-org/4.4/multiverse/binary-arm64/mongodb-org-server_4.4.1_arm64.deb
+        plugin: nil
         stage-packages:
-
+            - mongodb-server
+            - mongodb-server-core
             - libssl1.1
             - libcurl3
    
