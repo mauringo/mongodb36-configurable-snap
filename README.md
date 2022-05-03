@@ -19,6 +19,7 @@ The Snap configuration files are stored in: /var/snap/mongo36-configurable/commo
     use "mongo36-configurable.remove-data" to reset data 
     
     restart the app fater any procedure above   
+    
 
 Installable trough snapd:
 
