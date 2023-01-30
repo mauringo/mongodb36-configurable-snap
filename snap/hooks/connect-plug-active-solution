@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#This script creates the basic folders, adapt for your use
+
+#MyAppPersonaldir ---> Adapt for yourself
+MY_FOLDERNAME=mongo36
+
+
+#whatsMyDirAgain? 
+MYDIR="$SNAP_COMMON/solutions/activeConfiguration/$MY_FOLDERNAME"
+
+# ensure the app data directory exists and in case create it :)
+if [ ! -d "$MYDIR" ]; then
+	mkdir -p "$MYDIR"
+fi
+

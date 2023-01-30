@@ -1,35 +1,43 @@
-#!/bin/bash
+#!/bin/sh
+
+#wait thill the solution plug is connected :)
+while ! snapctl is-connected active-solution 
+do 
+  sleep 5 
+done
+
+export LC_ALL=C   #Locale settings Override, MongoDB stuffs
+
+#MyAppPersonaldir ---> Adapt for yourself
+MY_FOLDERNAME=mongo36
 
 
+#whatsMyDirAgain? better not modify this
+MYDIR="$SNAP_COMMON/solutions/activeConfiguration/$MY_FOLDERNAME"
 
-export LC_ALL=C 
+if [ ! -d "$MYDIR"]; then
+	mkdir $MYDIR
+    echo $MYDIR
+fi
+
+#move myself in the working directory, from here enything is almost untouched
+cd $MYDIR
+
 
 # ensure the conf directory exists
-if [ ! -f "$SNAP_COMMON/mongodb.conf" ]; then
-	cp $SNAP/bin/conf/mongodb.conf $SNAP_COMMON/mongodb.conf
-
+if [ ! -f "./mongodb.conf" ]; then
+	cp $SNAP/bin/conf/mongodb.conf ./mongodb.conf
+    echo "file conf "
 fi
 
-if [ ! -f "$SNAP_COMMON/mongodb.log" ]; then
-	cp $SNAP/bin/conf/mongodb.log $SNAP_COMMON/mongodb.log
-
+if [ ! -f "./mongodb.log" ]; then
+	cp $SNAP/bin/conf/mongodb.log ./mongodb.log
+    echo "file "
 fi
 
-if [ ! -d "$SNAP_COMMON/mongodb" ]; then
-	mkdir $SNAP_COMMON/mongodb
-
+if [ ! -d "./mongodb" ]; then
+	mkdir ./mongodb
+    echo "folder "
 fi
-
-cd $SNAP_COMMON
-
 
 exec $SNAP/usr/bin/mongod -f ./mongodb.conf
-
-
-
-
-
-
-
-
-

@@ -35,28 +35,8 @@ apps:
     mongod:
         command: bin/run.sh 
         daemon: simple
-        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
-        restart-condition: on-failure
-        
-        
-    restore-conf: 
-        command: bin/restorec.sh
-        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
-
-        
-    remove-data: 
-        command: bin/remdata.sh
-        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
-        
-        
-    reset: 
-        command: bin/reset.sh
-        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
-        
-    info:
-        command: bin/info.sh 
-        plugs: [network, network-bind, mount-observe, network-observe, system-observe, bluetooth-control]
-       
+        plugs: [network, network-bind, mount-observe, network-observe, system-observe, active-solution]
+        restart-condition: on-failure       
 
 parts:
     mongodb:
@@ -72,3 +52,27 @@ parts:
         plugin: dump
         organize:
           '*': bin/
+
+    configs:
+        source: ./configs
+        plugin: dump
+        organize:
+           'package-assets/*': package-assets/${SNAPCRAFT_PROJECT_NAME}/
+
+slots:
+  package-assets:
+    interface: content
+    content: package-assets
+    source:
+      read:
+        - $SNAP/package-assets/${SNAPCRAFT_PROJECT_NAME}
+
+plugs:
+  active-solution:
+    interface: content
+    content: solutions
+    target: $SNAP_COMMON/solutions
+
+hooks:
+  connect-plug-active-solution:
+    plugs: [active-solution]

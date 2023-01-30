@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.boschrexroth.com/ctrlx-automation/ctrlx-core/apps/package-manifest/package-manifest.v1.1.schema.json",
+  "version": "1.0.0",
+  "id": "mongo36-configurable",
+  "configuration": {
+    "appDirectories": [
+      {
+        "name": "mongo36",
+        "description": "Mongo36",
+        "icon": "bosch-ic-core-data",
+        "copyOnLoad": true
+      }
+    ]
+  }
+}
